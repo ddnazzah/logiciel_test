@@ -23,7 +23,7 @@ const Registration: React.FC = () => {
 
 	const dispatch = useDispatch();
 
-	const [activeStep, setActiveStep] = useState<number>(2);
+	const [activeStep, setActiveStep] = useState<number>(0);
 
 	const [loading, setLoading] = useState(true);
 
@@ -115,6 +115,7 @@ const Registration: React.FC = () => {
 							additional_support: '',
 							// createdon: '',
 						}}
+						validateOnChange
 						validationSchema={activeStep === 0 ? step0Schema : activeStep === 1 ? step1Schema : step2Schema}
 						onSubmit={async (values, { setSubmitting }) => {
 							const data = { trainer_id: uuidv4(), ...values, createdon: new Date() };
